@@ -33,6 +33,16 @@ class Animal {
     greet() {
         console.log("Hello, I'm " + this.name);
     }
+    mate(animal) {
+        if (this.constructor.name === animal.constructor.name) {
+            let baby = new this.constructor("Baby" + this.constructor.name);
+            console.log(baby.name);
+        }
+        else {
+            console.log("Not successful");
+        }
+
+    }
 }
     /*play() {
         this.energyLevel -= 50; 
@@ -56,7 +66,6 @@ class Fish extends Animal {
         super(name, weight);
     }
     get weight() {
-        debugger;
         console.log("ANIMAL_NAME weight accessed");
         return this._weight;
     }
@@ -103,7 +112,7 @@ console.log("Hello " + billy.name);
 console.log(billy.greet());
 billy.play();
 billy.eat();*/
-let billy = new Fish('Billy', 500);
-console.log("Hello " + billy.name);
-billy.name = 'ah';
-billy.weight = 101;
+let billy = new Fish('Billy', 50);
+let thomas = new Fish('thomas' , 40);
+console.log(billy.constructor.name);
+billy.mate(thomas);
